@@ -12,6 +12,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+
+    
     <style>
         * {
             margin: 0;
@@ -21,15 +23,16 @@
 
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             color: #333;
             background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+            font-size: 18px;
         }
 
         .header {
             background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
             color: white;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -46,7 +49,7 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             color: white;
             text-decoration: none;
@@ -55,13 +58,14 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-menu a {
             color: white;
             text-decoration: none;
             font-weight: 500;
+            font-size: 1.1rem;
             transition: color 0.3s ease;
         }
 
@@ -75,29 +79,44 @@
             background-position: center;
             color: white;
             text-align: center;
-            padding: 6rem 2rem 4rem;
+            padding: 8rem 2rem 6rem;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            margin: 3rem 0;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
 
         .section {
-            padding: 4rem 0;
+            padding: 6rem 0;
         }
 
         .container {
@@ -107,71 +126,399 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
             color: #2c5282;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+            line-height: 1.3;
         }
 
         .card {
             background: white;
-            border-radius: 15px;
-            padding: 2rem;
+            border-radius: 20px;
+            padding: 3rem;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
         }
 
         .table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 2rem;
+            font-size: 1rem;
         }
 
         .table th,
         .table td {
-            padding: 1rem;
+            padding: 1.5rem;
             text-align: left;
             border-bottom: 1px solid #e2e8f0;
+            line-height: 1.8;
         }
 
         .table th {
             background: #f7fafc;
             font-weight: 600;
             color: #2c5282;
+            font-size: 1.1rem;
         }
 
         .tag {
             display: inline-block;
             background: #3182ce;
             color: white;
-            padding: 0.3rem 0.8rem;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
-            font-size: 0.8rem;
-            margin: 0.2rem;
+            font-size: 0.9rem;
+            margin: 0.3rem;
+        }
+
+        .approach-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .approach-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .approach-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3182ce, #2c5282);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .approach-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c5282;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .approach-description {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .approach-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .approach-features li {
+            font-size: 1rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .approach-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3182ce;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .section-image {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        /* リッチなアニメーション効果 */
+        @keyframes sparkle {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.1); }
+            50% { transform: rotate(180deg) scale(0.9); }
+            75% { transform: rotate(270deg) scale(1.1); }
+        }
+
+        @keyframes heartbeat {
+            0%, 50%, 100% { transform: scale(1); }
+            25%, 75% { transform: scale(1.2); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; transform: rotate(0deg); }
+            50% { opacity: 1; transform: rotate(180deg); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 15px #ffd700; }
+            50% { box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700; }
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 豪華な装飾効果を追加 */
+        .hero {
+            background: linear-gradient(135deg, rgba(44, 82, 130, 0.95), rgba(49, 130, 206, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23ffd700;stop-opacity:0.3" /><stop offset="100%" style="stop-color:%23ffd700;stop-opacity:0" /></radialGradient></defs><rect fill="%23f0f8ff" width="1200" height="800"/><circle fill="url(%23grad1)" cx="300" cy="200" r="150"/><circle fill="url(%23grad1)" cx="900" cy="400" r="200"/><circle fill="url(%23grad1)" cx="600" cy="600" r="120"/></svg>');
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,215,0,0.1) 50%, transparent 60%);
+            animation: rainbow 8s linear infinite;
+            background-size: 400% 400%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            background: linear-gradient(45deg, #ffffff, #e2e8f0, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+        }
+
+        .section-title {
+            background: linear-gradient(45deg, #2c5282, #3182ce, #2c5282);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: rainbow 4s linear infinite;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #3182ce, transparent);
+            border-radius: 2px;
+        }
+
+        .approach-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .approach-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .approach-card:hover::before {
+            left: 100%;
+        }
+
+        .approach-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .approach-icon {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .approach-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .approach-card:hover .approach-icon::after {
+            width: 120%;
+            height: 120%;
+        }
+
+        .approach-card:hover .approach-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3182ce, #ffd700, #e53e3e, #3182ce);
+            background-size: 200% 100%;
+            animation: rainbow 3s linear infinite;
+        }
+
+        .hero-image img, .section-image {
+            transition: all 0.4s ease;
+            filter: brightness(1) contrast(1.1) saturate(1.1);
+        }
+
+        .hero-image img:hover, .section-image:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1) contrast(1.2) saturate(1.2);
+            box-shadow: 0 20px 80px rgba(0,0,0,0.4);
+        }
+
+        /* パーティクル効果 */
+        .section {
+            position: relative;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255,215,0,0.1) 1px, transparent 1px),
+                radial-gradient(circle at 80% 80%, rgba(255,107,107,0.1) 1px, transparent 1px),
+                radial-gradient(circle at 40% 40%, rgba(78,205,196,0.1) 1px, transparent 1px);
+            background-size: 50px 50px, 80px 80px, 60px 60px;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
         }
 
         @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
             .nav-menu {
                 display: none;
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
             }
             
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .container {
                 padding: 0 1rem;
+            }
+
+            .card, .approach-card {
+                padding: 2rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            /* モバイル用の最終セクション調整 */
+            .section [style*="font-size: 3.5rem"] {
+                font-size: 2.5rem !important;
+            }
+            
+            .section [style*="font-size: 3rem"] {
+                font-size: 2rem !important;
+            }
+            
+            .section [style*="font-size: 2.8rem"] {
+                font-size: 2rem !important;
+            }
+            
+            .section [style*="font-size: 2.5rem"] {
+                font-size: 1.8rem !important;
+            }
+            
+            .section [style*="font-size: 2.2rem"] {
+                font-size: 1.6rem !important;
             }
         }
     </style>
@@ -187,6 +534,7 @@
                     <li><a href="#features">特徴</a></li>
                     <li><a href="#effects">効果</a></li>
                     <li><a href="#approaches">アプローチ</a></li>
+                    <li><a href="#assessment">個別最適アプローチ</a></li>
                     <li><a href="#curriculum">カリキュラム</a></li>
                 </ul>
             </nav>
@@ -198,6 +546,10 @@
         <div class="hero-content">
             <h1>サッカー療育</h1>
             <p class="hero-subtitle">発達障害の子どもたちの発達を支援する専門的アプローチ</p>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/800x400/3182ce/FFFFFF?text=サッカー療育の様子" 
+                     alt="発達障害の子どもたちがサッカーボールを使って楽しく活動している様子。専門の指導者が丁寧にサポートし、子どもたちが笑顔で参加している温かい雰囲気のサッカー療育セッション">
+            </div>
         </div>
     </section>
 
@@ -206,10 +558,16 @@
         <div class="container">
             <h2 class="section-title">サッカー療育について</h2>
             <div class="card">
-                <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #4a5568;">
+                <p style="font-size: 1.2rem; margin-bottom: 3rem; color: #4a5568; line-height: 1.8;">
                     サッカー療育とは、サッカーを療育のツールとして活用し、発達障害や特性のある子どもたちの発達を支援する方法です。
                     サッカー指導とは異なり、サッカーを通じて5つの発達領域にアプローチします。
                 </p>
+
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/800x400/2c5282/FFFFFF?text=5つの発達領域" 
+                         alt="サッカー療育の5つの発達領域を示すインフォグラフィック。健康・生活、運動・感覚、認知・行動、言語・コミュニケーション、人間関係・社会性の各領域が色分けされて分かりやすく表示されている" 
+                         class="section-image">
+                </div>
                 
                 <table class="table">
                     <thead>
@@ -249,26 +607,52 @@
     <section id="features" class="section" style="background: #f7fafc;">
         <div class="container">
             <h2 class="section-title">サッカーが療育ツールとして最適な5つの特徴</h2>
+            
+            <div class="image-container">
+                <img src="https://via.placeholder.com/800x400/38a169/FFFFFF?text=サッカーの特徴" 
+                     alt="サッカーボールとコーンを使った療育活動の様子。シンプルなルールで子どもたちが自由に動き回り、それぞれのポジションで役割を理解しながら楽しく活動している風景" 
+                     class="section-image">
+            </div>
+
             <div class="grid">
-                <div class="card">
-                    <h3 style="color: #3182ce; margin-bottom: 1rem;"><i class="fas fa-1"></i> ルールがシンプル</h3>
-                    <p>「手を使わずにボールをゴールに入れる」という基本ルールは非常に単純明快です。複雑なルールやプロセスを理解するのが苦手な子どもでも参加しやすい環境を提供します。</p>
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-1"></i>
+                    </div>
+                    <h3 class="approach-title">ルールがシンプル</h3>
+                    <p class="approach-description">「手を使わずにボールをゴールに入れる」という基本ルールは非常に単純明快です。複雑なルールやプロセスを理解するのが苦手な子どもでも参加しやすい環境を提供します。</p>
                 </div>
-                <div class="card">
-                    <h3 style="color: #3182ce; margin-bottom: 1rem;"><i class="fas fa-2"></i> 自由度が高い</h3>
-                    <p>プレー選択が自由で、様々なルールで縛られることが少ないため、自己判断・自己決定の能力を自然に身につけることができます。</p>
+                
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-2"></i>
+                    </div>
+                    <h3 class="approach-title">自由度が高い</h3>
+                    <p class="approach-description">プレー選択が自由で、様々なルールで縛られることが少ないため、自己判断・自己決定の能力を自然に身につけることができます。</p>
                 </div>
-                <div class="card">
-                    <h3 style="color: #3182ce; margin-bottom: 1rem;"><i class="fas fa-3"></i> ポジションと役割がある</h3>
-                    <p>各選手には得意なこと、性格に合ったポジションを選ぶことができ、「社会の縮図」としての役割理解を学ぶことができます。</p>
+                
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-3"></i>
+                    </div>
+                    <h3 class="approach-title">ポジションと役割がある</h3>
+                    <p class="approach-description">各選手には得意なこと、性格に合ったポジションを選ぶことができ、「社会の縮図」としての役割理解を学ぶことができます。</p>
                 </div>
-                <div class="card">
-                    <h3 style="color: #3182ce; margin-bottom: 1rem;"><i class="fas fa-4"></i> 攻守の切り替えがある</h3>
-                    <p>試合中に何度も「守る」から「攻める」への切り替えが行われ、思考の切り替えを自然と学ぶことができます。</p>
+                
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-4"></i>
+                    </div>
+                    <h3 class="approach-title">攻守の切り替えがある</h3>
+                    <p class="approach-description">試合中に何度も「守る」から「攻める」への切り替えが行われ、思考の切り替えを自然と学ぶことができます。</p>
                 </div>
-                <div class="card">
-                    <h3 style="color: #3182ce; margin-bottom: 1rem;"><i class="fas fa-5"></i> 勝ち負けがある</h3>
-                    <p>明確な勝敗を通じて感情を自然に芽生えさせ、チームで共有することで喜びや悔しさを学び、次への意欲につなげることができます。</p>
+                
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-5"></i>
+                    </div>
+                    <h3 class="approach-title">勝ち負けがある</h3>
+                    <p class="approach-description">明確な勝敗を通じて感情を自然に芽生えさせ、チームで共有することで喜びや悔しさを学び、次への意欲につなげることができます。</p>
                 </div>
             </div>
         </div>
@@ -278,26 +662,52 @@
     <section id="effects" class="section">
         <div class="container">
             <h2 class="section-title">サッカー療育の効果</h2>
+            
+            <div class="image-container">
+                <img src="https://via.placeholder.com/800x400/d69e2e/FFFFFF?text=療育効果" 
+                     alt="サッカー療育の効果を示すイメージ。子どもたちが楽しそうに運動し、コミュニケーションを取りながら自信に満ちた表情で活動している様子。身体的・社会的・精神的な成長が感じられる場面" 
+                     class="section-image">
+            </div>
+
             <div class="grid">
-                <div class="card">
-                    <h3 style="color: #3182ce; margin-bottom: 1rem;"><i class="fas fa-running"></i> 運動機会の増加と身体的健康の促進</h3>
-                    <p>定期的に体を動かす時間を確保することで、運動不足の解消や基本的な運動能力の向上に効果的です。走る、跳ぶ、投げるなどの基本的な運動能力や協調性、バランス感覚が育まれます。</p>
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3 class="approach-title">運動機会の増加と身体的健康の促進</h3>
+                    <p class="approach-description">定期的に体を動かす時間を確保することで、運動不足の解消や基本的な運動能力の向上に効果的です。走る、跳ぶ、投げるなどの基本的な運動能力や協調性、バランス感覚が育まれます。</p>
                 </div>
-                <div class="card">
-                    <h3 style="color: #3182ce; margin-bottom: 1rem;"><i class="fas fa-comments"></i> コミュニケーション能力の向上</h3>
-                    <p>チームスポーツならではのコミュニケーション機会を通じて、言語的・非言語的なコミュニケーション能力が向上します。相手の意図を読み取ったり、仲間と協力したりする経験が積み重なります。</p>
+                
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="approach-title">コミュニケーション能力の向上</h3>
+                    <p class="approach-description">チームスポーツならではのコミュニケーション機会を通じて、言語的・非言語的なコミュニケーション能力が向上します。相手の意図を読み取ったり、仲間と協力したりする経験が積み重なります。</p>
                 </div>
-                <div class="card">
-                    <h3 style="color: #3182ce; margin-bottom: 1rem;"><i class="fas fa-heart"></i> 自己肯定感の支援</h3>
-                    <p>仲間から感謝されたり、褒められたりする機会が多く、自己肯定感を高める強力な要因となります。信頼する人からの称賛という「社会的な報酬」が子どもたちの意欲を引き出します。</p>
+                
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="approach-title">自己肯定感の支援</h3>
+                    <p class="approach-description">仲間から感謝されたり、褒められたりする機会が多く、自己肯定感を高める強力な要因となります。信頼する人からの称賛という「社会的な報酬」が子どもたちの意欲を引き出します。</p>
                 </div>
-                <div class="card">
-                    <h3 style="color: #3182ce; margin-bottom: 1rem;"><i class="fas fa-users"></i> 集団行動とルール遵守の学習</h3>
-                    <p>チームの動きに自分の行動を合わせる経験を通じて、自制する力や集団のルールを守る重要性を学びます。社会のルールを遵守するスキルの習得にもつながります。</p>
+                
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="approach-title">集団行動とルール遵守の学習</h3>
+                    <p class="approach-description">チームの動きに自分の行動を合わせる経験を通じて、自制する力や集団のルールを守る重要性を学びます。社会のルールを遵守するスキルの習得にもつながります。</p>
                 </div>
-                <div class="card">
-                    <h3 style="color: #3182ce; margin-bottom: 1rem;"><i class="fas fa-smile"></i> ストレス発散と精神的健康の促進</h3>
-                    <p>特にADHDの子どもたちは、多動・衝動性のあるエネルギーを適切に発散できることで、日常生活が落ち着きやすくなります。満足感や達成感も得られます。</p>
+                
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3 class="approach-title">ストレス発散と精神的健康の促進</h3>
+                    <p class="approach-description">特にADHDの子どもたちは、多動・衝動性のあるエネルギーを適切に発散できることで、日常生活が落ち着きやすくなります。満足感や達成感も得られます。</p>
                 </div>
             </div>
         </div>
@@ -308,611 +718,882 @@
         <div class="container">
             <h2 class="section-title">発達障害別アプローチ</h2>
             
-            <!-- ASD -->
-            <div class="card" style="border-left: 5px solid #e53e3e;">
-                <h3 style="color: #e53e3e; margin-bottom: 2rem;"><i class="fas fa-brain"></i> 自閉スペクトラム症（ASD）</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-                    <div>
-                        <h4 style="color: #2c5282; margin-bottom: 1rem;">特性</h4>
-                        <p>社会的コミュニケーションの困難さや限定された興味・活動パターン、感覚過敏などの特性があります。また、変化への適応が難しく、予測可能性を好む傾向があります。</p>
+            <div class="card">
+                <p style="font-size: 1.2rem; margin-bottom: 3rem; color: #4a5568; line-height: 1.8;">
+                    発達障害の特性に応じた専門的なアプローチにより、一人ひとりに最適な支援を提供します。
+                    各障害の特徴を理解し、その子どもに合った活動と環境を整えることで、効果的な発達支援を実現します。
+                </p>
+            </div>
+
+            <div class="image-container">
+                <img src="https://via.placeholder.com/800x400/e53e3e/FFFFFF?text=発達障害別支援" 
+                     alt="発達障害の特性に応じた個別支援の様子。ASD、ADHD、DCD、LDなど異なる特性を持つ子どもたちそれぞれに最適化されたサッカー療育プログラムを実践している専門的な指導風景" 
+                     class="section-image">
+            </div>
+
+            <div class="grid">
+                <!-- ASD -->
+                <div class="approach-card" style="border-left: 5px solid #e53e3e;">
+                    <div class="approach-icon" style="background: linear-gradient(135deg, #e53e3e, #c53030);">
+                        <i class="fas fa-brain"></i>
                     </div>
-                    <div>
+                    <h3 class="approach-title" style="color: #e53e3e;">自閉スペクトラム症（ASD）</h3>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">特性</h4>
+                        <p class="approach-description">社会的コミュニケーションの困難さや限定された興味・活動パターン、感覚過敏などの特性があります。また、変化への適応が難しく、予測可能性を好む傾向があります。</p>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
                         <h4 style="color: #2c5282; margin-bottom: 1rem;">期待できる効果</h4>
-                        <ul style="list-style-type: disc; margin-left: 1.5rem;">
-                            <li>社会的スキルの向上：チームスポーツを通じて、他者との協力やコミュニケーション能力が向上</li>
-                            <li>柔軟性の向上：試合状況の変化に対応することで、状況に応じた行動の切り替えを学習</li>
-                            <li>感覚統合の促進：様々な動きや感覚刺激を経験することで、感覚統合能力が向上</li>
-                            <li>ルーティンの形成：練習の流れが一定であることで、安心感を得ながら新しいスキルを習得</li>
+                        <ul class="approach-features">
+                            <li>社会的スキルの向上：チームスポーツを通じて協力やコミュニケーション能力が向上</li>
+                            <li>柔軟性の向上：試合状況の変化に対応し、行動の切り替えを学習</li>
+                            <li>感覚統合の促進：様々な動きや感覚刺激で感覚統合能力が向上</li>
+                            <li>ルーティンの形成：一定の練習の流れで安心感を得ながらスキル習得</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">具体的な活動例</h4>
+                        <ul class="approach-features">
+                            <li>予測可能な練習構造：視覚的なスケジュールを用いた練習の流れ</li>
+                            <li>段階的な社会的交流：平行プレイからペアワーク、小グループ活動へ発展</li>
+                            <li>視覚的サポート：コーンやマーカーで動く場所を明確化</li>
+                            <li>感覚調整活動：感覚過敏に応じた段階的な慣らし活動</li>
                         </ul>
                     </div>
                 </div>
-                <div>
-                    <h4 style="color: #2c5282; margin-bottom: 1rem;">具体的な活動例</h4>
-                    <ul style="list-style-type: disc; margin-left: 1.5rem;">
-                        <li>予測可能な練習構造：毎回同じウォームアップから始め、視覚的なスケジュールを用いて練習の流れを明示</li>
-                        <li>段階的な社会的交流：最初は平行プレイから始め、徐々にペアワーク、小グループ活動へと発展</li>
-                        <li>視覚的サポート：コーンやマーカーを使って動く場所を明確にし、視覚的な手がかりを多く取り入れ</li>
-                        <li>感覚調整活動：感覚過敏がある場合は、徐々に慣らしていく活動を取り入れ</li>
+
+                <!-- ADHD多動/衝動性型 -->
+                <div class="approach-card" style="border-left: 5px solid #38a169;">
+                    <div class="approach-icon" style="background: linear-gradient(135deg, #38a169, #2f855a);">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="approach-title" style="color: #38a169;">注意欠如・多動症（ADHD）多動/衝動性型</h3>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">特性</h4>
+                        <p class="approach-description">じっとしていることが難しく、順番を待つことが苦手です。また、エネルギーが溢れており、体を動かしたい欲求が強い傾向があります。</p>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">期待できる効果</h4>
+                        <ul class="approach-features">
+                            <li>エネルギーの適切な発散：運動量の多いサッカーで過剰エネルギーを発散</li>
+                            <li>自己制御能力の向上：ルールのある活動で衝動性をコントロール</li>
+                            <li>集中力の向上：興味のある活動で持続的な注意力が養われる</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">具体的な活動例</h4>
+                        <ul class="approach-features">
+                            <li>高運動量のドリル：連続的な動きを含むドリルでエネルギー発散</li>
+                            <li>短時間の集中的な活動：短い時間で区切った多様な活動を提供</li>
+                            <li>ルール遵守ゲーム：簡単なルールから複雑なルールへ段階的導入</li>
+                            <li>待ち時間を最小限にし、常に活動的な状態を維持</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ADHD不注意型 -->
+                <div class="approach-card" style="border-left: 5px solid #d69e2e;">
+                    <div class="approach-icon" style="background: linear-gradient(135deg, #d69e2e, #b7791f);">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="approach-title" style="color: #d69e2e;">注意欠如・多動症（ADHD）不注意型</h3>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">特性</h4>
+                        <p class="approach-description">注意が散りやすく、細部に注意を払うことが難しい傾向があります。集中を維持することが困難で、注意の焦点化に課題があります。</p>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">期待できる効果</h4>
+                        <ul class="approach-features">
+                            <li>注意力の向上：ボールに集中する活動で注意を持続する力が養われる</li>
+                            <li>組織化能力の向上：チームプレーで計画性や組織化能力が向上</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">具体的な活動例</h4>
+                        <ul class="approach-features">
+                            <li>注意集中ドリル：ボールコントロールやドリブルでボールに集中</li>
+                            <li>視覚的な手がかり：色分けしたビブスやコーンで視覚的に分かりやすい環境</li>
+                            <li>明確で簡潔な指示とポジティブなフィードバック</li>
+                            <li>必要に応じて短い休憩を取り入れ、集中力の回復を図る</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- DCD -->
+                <div class="approach-card" style="border-left: 5px solid #805ad5;">
+                    <div class="approach-icon" style="background: linear-gradient(135deg, #805ad5, #6b46c1);">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3 class="approach-title" style="color: #805ad5;">発達性協調運動障害（DCD）</h3>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">特性</h4>
+                        <p class="approach-description">運動の協調性に困難を抱え、不器用さが目立つことがあります。また、新しい運動スキルの習得に時間がかかる傾向があります。</p>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">期待できる効果</h4>
+                        <ul class="approach-features">
+                            <li>運動スキルの向上：繰り返しの練習で基本的な運動スキルが向上</li>
+                            <li>身体認識の向上：様々な動きで自分の身体の使い方への理解が深まる</li>
+                            <li>自信の向上：成功体験を積み重ね、運動に対する自信が高まる</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">具体的な活動例</h4>
+                        <ul class="approach-features">
+                            <li>基本動作の分解練習：複雑な動きを小さなステップに分解</li>
+                            <li>反復練習：同じ動きを繰り返し、動きのパターンを身体に習得</li>
+                            <li>成功体験の創出：難易度を調整し、必ず成功できる経験を提供</li>
+                            <li>一人ひとりのペースを尊重し、視覚的なデモンストレーションを活用</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- LD -->
+                <div class="approach-card" style="border-left: 5px solid #f56565;">
+                    <div class="approach-icon" style="background: linear-gradient(135deg, #f56565, #e53e3e);">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="approach-title" style="color: #f56565;">学習障害（LD）</h3>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">特性</h4>
+                        <p class="approach-description">知的発達に遅れはないものの、読み書き（読字・書字障害）、計算（算数障害）に特異的な困難を示します。また、ワーキングメモリー（作業記憶）が低い傾向があります。</p>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">期待できる効果</h4>
+                        <ul class="approach-features">
+                            <li>眼球運動の強化：ボールを目で追う動きで読字障害の改善に効果</li>
+                            <li>微細運動の向上：指先や手首の動きで書字能力の基盤を強化</li>
+                            <li>ワーキングメモリーのサポート：目の前の具体的な作業で理解しやすい環境</li>
+                            <li>ワーキングメモリーの強化：頭の中で作戦を考える活動で記憶・処理能力向上</li>
+                            <li>視覚処理能力の向上：空間認識やパターン認識の改善</li>
+                            <li>順序性の理解：段階的な活動で論理的思考を育成</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">具体的な活動例</h4>
+                        <ul class="approach-features">
+                            <li>眼球運動強化：ボールを目で追う、ゲート通過時の視線移動練習</li>
+                            <li>微細運動練習：ボールタッチ、指先でのボールコントロール</li>
+                            <li>具体的作業中心：目の前の明確な課題で段階的にスキル習得</li>
+                            <li>戦術理解：簡単な作戦から始めて、徐々に複雑な戦術思考を育成</li>
+                            <li>視覚的サポート：カードやマーカーを使った明確な指示</li>
+                            <li>成功体験の積み重ね：小さな達成を確認しながら自信を構築</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 強みに焦点を当てたアセスメント -->
+    <section id="strengths" class="section">
+        <div class="container">
+            <h2 class="section-title">強みに焦点を当てたアセスメント</h2>
+            
+            <div class="card">
+                <p style="font-size: 1.2rem; margin-bottom: 3rem; color: #4a5568; line-height: 1.8;">
+                    サッカー療育では、「できないこと」だけでなく「できること」「得意なこと」「可能性」を見つけることを重視しています。
+                    以下は子どもたちの強みを発見し、伸ばすためのアセスメントポイントです。
+                </p>
+            </div>
+
+            <div class="image-container">
+                <img src="https://via.placeholder.com/800x400/38a169/FFFFFF?text=強みの発見" 
+                     alt="子どもたちの強みや得意分野を発見している様子。一人ひとりの特性や能力を観察し、それぞれの可能性を見つけ出して伸ばしていく温かいサポートの場面" 
+                     class="section-image">
+            </div>
+
+            <div class="grid">
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3 class="approach-title">特定の動きの得意さ</h3>
+                    <p class="approach-description">走る、跳ぶ、バランスを取るなど、特定の動きが得意な場合、その強みを活かしたポジションや役割を提案します。例えば、走るのが速い子どもには広いスペースを使うポジションが向いているかもしれません。</p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="approach-title">視覚的な情報処理能力</h3>
+                    <p class="approach-description">視覚情報の処理が得意な子どもは、フィールド全体を見渡す力や空間把握能力が高いことがあります。この強みを活かし、戦術的な視点やゲーム理解を深めるアプローチを提供します。</p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="approach-title">集中力と持続性</h3>
+                    <p class="approach-description">特定の活動に強い集中力を発揮する子どもは、反復練習や精密なスキルトレーニングに向いています。この特性を活かして、技術的な側面を伸ばすプログラムを設計します。</p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3 class="approach-title">ルーティンへの適応力</h3>
+                    <p class="approach-description">決まったパターンを理解し実行するのが得意な子どもは、組織的なプレーやポジショニングの正確さを強みにできます。明確な役割と手順を提示することで、チーム内での重要な役割を担うことができます。</p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="approach-title">共感性と協力性</h3>
+                    <p class="approach-description">他者への気づかいや協力が得意な子どもは、チームワークを高める存在となります。この特性を伸ばし、サポート役やコミュニケーションの中心的役割を担えるよう支援します。</p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3 class="approach-title">エネルギーと熱意</h3>
+                    <p class="approach-description">高いエネルギーレベルと積極性は、適切に方向づけることで大きな強みになります。この特性を活かし、持久力や意欲を必要とするプレースタイルを発展させます。</p>
+                </div>
+            </div>
+
+            <div class="image-container">
+                <img src="https://via.placeholder.com/800x400/805ad5/FFFFFF?text=個別の強み活用" 
+                     alt="一人ひとりの強みを活かしたサッカー療育の実践風景。それぞれの子どもの得意分野や特性を理解し、個別に最適化されたアプローチで能力を伸ばしている様子" 
+                     class="section-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- 個別最適アプローチ -->
+    <section id="assessment" class="section" style="background: #f7fafc;">
+        <div class="container">
+            <h2 class="section-title">個別最適アプローチ</h2>
+            
+            <div class="card">
+                <p style="font-size: 1.2rem; margin-bottom: 3rem; color: #4a5568; line-height: 1.8;">
+                    サッカー療育では、一人ひとりの子どもの特性に合わせた専門的なプログラムを提供しています。
+                    子どもの行動観察と保護者からのヒアリングによる綿密なアセスメントを基に、個別のニーズに応じたカリキュラムを設計します。
+                </p>
+            </div>
+
+            <div class="image-container">
+                <img src="https://via.placeholder.com/800x400/805ad5/FFFFFF?text=個別アセスメント" 
+                     alt="サッカー療育の専門家が子どもの行動を観察し、保護者と面談している様子。個別の特性を理解し、一人ひとりに最適化されたプログラムを設計するための丁寧なアセスメント風景" 
+                     class="section-image">
+            </div>
+
+            <div class="grid">
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="approach-title">行動観察</h3>
+                    <p class="approach-description">サッカー活動中の子どもの行動を専門家が観察し、運動能力、社会性、コミュニケーション、集中力などを評価します。</p>
+                    <ul class="approach-features">
+                        <li>運動スキルと協調性の評価</li>
+                        <li>社会的相互作用の観察</li>
+                        <li>注意・集中力の持続時間測定</li>
+                        <li>感覚処理能力の確認</li>
+                    </ul>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="approach-title">保護者ヒアリング</h3>
+                    <p class="approach-description">家庭や学校での様子、得意なこと、苦手なこと、興味のあることなど、詳細な情報を保護者から収集します。</p>
+                    <ul class="approach-features">
+                        <li>日常生活での特性と課題</li>
+                        <li>興味・関心のある活動</li>
+                        <li>感覚過敏や感覚鈍麻の有無</li>
+                        <li>コミュニケーションパターン</li>
+                    </ul>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="approach-title">専門的評価</h3>
+                    <p class="approach-description">発達支援の専門家が収集した情報を分析し、子どもの発達段階や特性に最適なプログラムを設計します。</p>
+                    <ul class="approach-features">
+                        <li>発達段階に応じた目標設定</li>
+                        <li>強みを活かした活動計画</li>
+                        <li>段階的なスキル向上プログラム</li>
+                        <li>継続的な評価と調整</li>
+                    </ul>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="approach-title">感覚統合アプローチ</h3>
+                    <p class="approach-description">感覚処理の特性に応じた環境調整と活動を提供し、感覚統合能力の向上を図ります。</p>
+                    <ul class="approach-features">
+                        <li>感覚過敏への段階的適応</li>
+                        <li>固有受容覚・前庭覚の強化</li>
+                        <li>触覚刺激の調整</li>
+                        <li>視覚・聴覚情報の整理</li>
+                    </ul>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="approach-title">社会性発達支援</h3>
+                    <p class="approach-description">チーム活動を通じて、社会的スキルとコミュニケーション能力の向上を支援します。</p>
+                    <ul class="approach-features">
+                        <li>アイコンタクトの練習</li>
+                        <li>順番待ちとルール理解</li>
+                        <li>協力とチームワーク</li>
+                        <li>感情調整と表現</li>
+                    </ul>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="approach-title">強みベースアプローチ</h3>
+                    <p class="approach-description">子ども一人ひとりの得意分野や興味を見つけ出し、それを活かした活動で自信と意欲を育みます。</p>
+                    <ul class="approach-features">
+                        <li>個別の才能と強みの発見</li>
+                        <li>成功体験の積み重ね</li>
+                        <li>自己肯定感の向上</li>
+                        <li>内発的動機の育成</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- ADHD多動/衝動性型 -->
-            <div class="card" style="border-left: 5px solid #38a169;">
-                <h3 style="color: #38a169; margin-bottom: 2rem;"><i class="fas fa-bolt"></i> 注意欠如・多動症（ADHD）多動/衝動性型</h3>
+            <div class="image-container">
+                <img src="https://via.placeholder.com/800x400/e53e3e/FFFFFF?text=個別サポート" 
+                     alt="一人ひとりの子どもに寄り添いながらサッカー療育を行っている様子。専門スタッフが個別の特性を理解し、それぞれの子どもに最適な支援を提供している温かい場面" 
+                     class="section-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- 具体的なカリキュラム -->
+    <section id="curriculum" class="section">
+        <div class="container">
+            <h2 class="section-title">具体的なカリキュラム</h2>
+            
+            <div class="card">
+                <p style="font-size: 1.2rem; margin-bottom: 3rem; color: #4a5568; line-height: 1.8;">
+                    以下の4つのメイン活動により、発達障害における主要な問題行動と背景要因に包括的にアプローチします。
+                    <strong>感覚処理・運動協調・注意集中・社会性</strong>の4つの領域を効果的にカバーし、
+                    子ども一人ひとりの特性に応じて柔軟に調整されます。
+                </p>
+            </div>
+
+            <div class="image-container">
+                <img src="https://via.placeholder.com/800x400/3182ce/FFFFFF?text=カリキュラム実践" 
+                     alt="様々なサッカー療育プログラムを実践している様子。ゲート通過、けんけんシュート、コーンドリブルなど多彩な活動を通じて子どもたちが楽しく学んでいる風景" 
+                     class="section-image">
+            </div>
+
+            <!-- プログラム1: ゲート通過シュート -->
+            <div class="approach-card">
+                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <div class="approach-icon" style="margin-right: 2rem; margin-bottom: 0;">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div>
+                        <h3 class="approach-title" style="margin-bottom: 0.5rem;">ゲート通過シュート</h3>
+                        <p style="color: #e53e3e; font-weight: 600; margin: 0;"><i class="fas fa-brain"></i> 感覚処理・空間認識の問題にアプローチ</p>
+                    </div>
+                </div>
+                
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
                     <div>
-                        <h4 style="color: #2c5282; margin-bottom: 1rem;">特性</h4>
-                        <p>多動/衝動性タイプのADHDの子どもたちは、じっとしていることが難しく、順番を待つことが苦手です。また、エネルギーが溢れており、体を動かしたい欲求が強い傾向があります。</p>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">ルール・内容</h4>
+                        <p style="line-height: 1.8;">コーンで構成されたゲートを通過しながらドリブルし、最後にシュート</p>
+                        
+                        <h4 style="color: #2c5282; margin-bottom: 1rem; margin-top: 1.5rem;">バリエーション</h4>
+                        <ul class="approach-features">
+                            <li>ゲート数や向きの調整</li>
+                            <li>シュート地点を遠くする</li>
+                            <li>制限時間の設定</li>
+                        </ul>
                     </div>
                     <div>
                         <h4 style="color: #2c5282; margin-bottom: 1rem;">期待できる効果</h4>
-                        <ul style="list-style-type: disc; margin-left: 1.5rem;">
-                            <li>エネルギーの適切な発散：運動量の多いサッカーを通じて、過剰なエネルギーを発散</li>
-                            <li>自己制御能力の向上：ルールのある活動を通じて、衝動性をコントロールする力が身につく</li>
-                            <li>集中力の向上：興味のある活動に取り組むことで、持続的な注意力が養われる</li>
+                        <ul class="approach-features">
+                            <li>触覚刺激・固有受容覚の向上</li>
+                            <li>眼球運動・バランス感覚の強化</li>
+                            <li>身体図式・運動企画能力の発達</li>
+                            <li>協応動作・聴覚刺激の統合</li>
                         </ul>
                     </div>
                 </div>
-                <div>
-                    <h4 style="color: #2c5282; margin-bottom: 1rem;">具体的な活動例</h4>
-                    <ul style="list-style-type: disc; margin-left: 1.5rem;">
-                        <li>高運動量のドリル：連続的な動きを含むドリルを多く取り入れ、エネルギーを発散</li>
-                        <li>短時間の集中的な活動：一つの活動を長く続けるのではなく、短い時間で区切った多様な活動を提供</li>
-                        <li>ルール遵守ゲーム：簡単なルールから始め、徐々に複雑なルールを導入するゲームを実施</li>
-                        <li>待ち時間を最小限にし、常に活動的な状態を維持</li>
-                    </ul>
+
+                <h4 style="color: #2c5282; margin-bottom: 1rem;">発達障害別の具体的効果</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <div style="background: #f0f8ff; padding: 1.5rem; border-radius: 10px;">
+                        <h5 style="color: #e53e3e; margin-bottom: 0.5rem;"><i class="fas fa-brain"></i> ASD（自閉スペクトラム症）</h5>
+                        <p style="font-size: 0.95rem; line-height: 1.7;">触覚刺激により感覚統合を促進。固有受容覚の向上で身体図式を改善し、視覚的な目標（ゲート）で空間認識能力を向上させます。</p>
+                    </div>
+                    <div style="background: #f0fff4; padding: 1.5rem; border-radius: 10px;">
+                        <h5 style="color: #38a169; margin-bottom: 0.5rem;"><i class="fas fa-bolt"></i> ADHD</h5>
+                        <p style="font-size: 0.95rem; line-height: 1.7;">連続した運動で過剰エネルギーを適切に発散。ゲートを通過する目標により集中力を向上させ、協応動作の練習で自己制御能力を強化します。</p>
+                    </div>
+                    <div style="background: #fef5f5; padding: 1.5rem; border-radius: 10px;">
+                        <h5 style="color: #f56565; margin-bottom: 0.5rem;"><i class="fas fa-book-open"></i> LD（学習障害）</h5>
+                        <p style="font-size: 0.95rem; line-height: 1.7;">ゲート通過時の眼球運動で読字障害の改善に効果。視覚的な目標設定で空間認識・パターン認識を向上させ、目の前の具体的作業でワーキングメモリーをサポートします。</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- ADHD不注意型 -->
-            <div class="card" style="border-left: 5px solid #d69e2e;">
-                <h3 style="color: #d69e2e; margin-bottom: 2rem;"><i class="fas fa-eye"></i> 注意欠如・多動症（ADHD）不注意型</h3>
+            <!-- プログラム2: けんけんシュート -->
+            <div class="approach-card">
+                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <div class="approach-icon" style="margin-right: 2rem; margin-bottom: 0;">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div>
+                        <h3 class="approach-title" style="margin-bottom: 0.5rem;">けんけんシュート</h3>
+                        <p style="color: #805ad5; font-weight: 600; margin: 0;"><i class="fas fa-puzzle-piece"></i> 運動協調・バランスの問題にアプローチ</p>
+                    </div>
+                </div>
+                
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
                     <div>
-                        <h4 style="color: #2c5282; margin-bottom: 1rem;">特性</h4>
-                        <p>不注意タイプのADHDの子どもたちは、注意が散りやすく、細部に注意を払うことが難しい傾向があります。</p>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">ルール・内容</h4>
+                        <p style="line-height: 1.8;">片足でけんけんしながら進み、3歩目でインステップシュート</p>
+                        
+                        <h4 style="color: #2c5282; margin-bottom: 1rem; margin-top: 1.5rem;">バリエーション</h4>
+                        <ul class="approach-features">
+                            <li>ボールを後ろ・正面・横から転がしてシュート</li>
+                            <li>バウンドボールで実施</li>
+                            <li>左右の足を変えて実施</li>
+                        </ul>
                     </div>
                     <div>
                         <h4 style="color: #2c5282; margin-bottom: 1rem;">期待できる効果</h4>
-                        <ul style="list-style-type: disc; margin-left: 1.5rem;">
-                            <li>注意力の向上：ボールに集中する活動を通じて、注意を持続する力が養われる</li>
-                            <li>組織化能力の向上：チームプレーを通じて、計画性や組織化能力が向上</li>
+                        <ul class="approach-features">
+                            <li>前庭核刺激によるバランス向上</li>
+                            <li>身体図式の発達</li>
+                            <li>運動企画能力の強化</li>
+                            <li>協応動作の改善</li>
                         </ul>
                     </div>
                 </div>
-                <div>
-                    <h4 style="color: #2c5282; margin-bottom: 1rem;">具体的な活動例</h4>
-                    <ul style="list-style-type: disc; margin-left: 1.5rem;">
-                        <li>注意集中ドリル：ボールコントロールやドリブルなど、ボールに集中する練習を実施</li>
-                        <li>視覚的な手がかり：色分けしたビブスやコーンを使用し、視覚的に分かりやすい環境を作成</li>
-                        <li>明確で簡潔な指示を心がけ、ポジティブなフィードバックを多く取り入れ</li>
-                        <li>必要に応じて短い休憩を取り入れ、集中力の回復を図る</li>
-                    </ul>
+
+                <h4 style="color: #2c5282; margin-bottom: 1rem;">発達障害別の具体的効果</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div style="background: #f0f8ff; padding: 1.5rem; border-radius: 10px;">
+                        <h5 style="color: #e53e3e; margin-bottom: 0.5rem;"><i class="fas fa-brain"></i> ASD（自閉スペクトラム症）</h5>
+                        <p style="font-size: 0.95rem; line-height: 1.7;">前庭核刺激により感覚統合を促進。身体図式の向上で自己の身体認識を改善し、予測可能な動作パターンで不安を軽減します。</p>
+                    </div>
+                    <div style="background: #faf5ff; padding: 1.5rem; border-radius: 10px;">
+                        <h5 style="color: #805ad5; margin-bottom: 0.5rem;"><i class="fas fa-puzzle-piece"></i> DCD</h5>
+                        <p style="font-size: 0.95rem; line-height: 1.7;">片足バランスで体幹機能を強化。運動企画能力で複雑な動作を分解学習し、協応動作の反復で運動パターンを習得します。</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- DCD -->
-            <div class="card" style="border-left: 5px solid #805ad5;">
-                <h3 style="color: #805ad5; margin-bottom: 2rem;"><i class="fas fa-puzzle-piece"></i> 発達性協調運動障害（DCD）</h3>
+            <!-- プログラム3: コーンドリブル -->
+            <div class="approach-card">
+                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <div class="approach-icon" style="margin-right: 2rem; margin-bottom: 0;">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <div>
+                        <h3 class="approach-title" style="margin-bottom: 0.5rem;">コーンドリブル</h3>
+                        <p style="color: #d69e2e; font-weight: 600; margin: 0;"><i class="fas fa-eye"></i> 注意・集中力の問題にアプローチ</p>
+                    </div>
+                </div>
+                
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
                     <div>
-                        <h4 style="color: #2c5282; margin-bottom: 1rem;">特性</h4>
-                        <p>発達性協調運動障害（DCD）の子どもたちは、運動の協調性に困難を抱え、不器用さが目立つことがあります。また、新しい運動スキルの習得に時間がかかる傾向があります。</p>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">ルール・内容</h4>
+                        <p style="line-height: 1.8;">並べたコーンを様々な方法でドリブル（左右交互、足の部位別など）</p>
+                        
+                        <h4 style="color: #2c5282; margin-bottom: 1rem; margin-top: 1.5rem;">バリエーション</h4>
+                        <ul class="approach-features">
+                            <li>コーン横通過、ジグザグ</li>
+                            <li>横向きドリブル</li>
+                            <li>足の部位を変える（インサイド、アウトサイド）</li>
+                        </ul>
                     </div>
                     <div>
                         <h4 style="color: #2c5282; margin-bottom: 1rem;">期待できる効果</h4>
-                        <ul style="list-style-type: disc; margin-left: 1.5rem;">
-                            <li>運動スキルの向上：繰り返しの練習を通じて、基本的な運動スキルが向上</li>
-                            <li>身体認識の向上：様々な動きを経験することで、自分の身体の使い方への理解が深まる</li>
-                            <li>自信の向上：成功体験を積み重ねることで、運動に対する自信が高まる</li>
+                        <ul class="approach-features">
+                            <li>触覚刺激・固有受容覚の向上</li>
+                            <li>眼球運動・バランス感覚</li>
+                            <li>身体図式・運動企画</li>
+                            <li>協応動作・聴覚刺激の統合</li>
                         </ul>
                     </div>
                 </div>
-                <div>
-                    <h4 style="color: #2c5282; margin-bottom: 1rem;">具体的な活動例</h4>
-                    <ul style="list-style-type: disc; margin-left: 1.5rem;">
-                        <li>基本動作の分解練習：複雑な動きを小さなステップに分解して練習</li>
-                        <li>反復練習：同じ動きを繰り返し練習し、動きのパターンを身体に覚えさせる</li>
-                        <li>成功体験の創出：難易度を調整し、必ず成功できる経験を提供</li>
-                        <li>焦らず、一人ひとりのペースを尊重し、視覚的なデモンストレーションを多用</li>
-                    </ul>
+
+                <h4 style="color: #2c5282; margin-bottom: 1rem;">発達障害別の具体的効果</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <div style="background: #fffaf0; padding: 1.5rem; border-radius: 10px;">
+                        <h5 style="color: #d69e2e; margin-bottom: 0.5rem;"><i class="fas fa-eye"></i> ADHD不注意型</h5>
+                        <p style="font-size: 0.95rem; line-height: 1.7;">運動企画で順序立てた思考を促進。協応動作で注意の分散を防止し、バランス練習で集中力を向上させます。</p>
+                    </div>
+                    <div style="background: #f0f8ff; padding: 1.5rem; border-radius: 10px;">
+                        <h5 style="color: #e53e3e; margin-bottom: 0.5rem;"><i class="fas fa-brain"></i> ASD</h5>
+                        <p style="font-size: 0.95rem; line-height: 1.7;">触覚刺激で感覚過敏への段階的適応。固有受容覚の向上で身体認識を改善し、視覚的手がかりで空間認識を向上させます。</p>
+                    </div>
+                    <div style="background: #fef5f5; padding: 1.5rem; border-radius: 10px;">
+                        <h5 style="color: #f56565; margin-bottom: 0.5rem;"><i class="fas fa-book-open"></i> LD（学習障害）</h5>
+                        <p style="font-size: 0.95rem; line-height: 1.7;">コーン間の眼球運動で読字能力の基盤を強化。ボールタッチの微細運動で書字能力を向上させ、段階的な練習で順序性の理解を促進します。</p>
+                    </div>
                 </div>
             </div>
-                 </div>
-     </section>
 
-     <!-- 個別最適アプローチ -->
-     <section id="assessment" class="section">
-         <div class="container">
-             <h2 class="section-title">個別最適アプローチ</h2>
-             <div class="card">
-                 <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #4a5568;">
-                     サッカー療育では、一人ひとりの子どもの特性に合わせた専門的なプログラムを提供しています。
-                     子どもの行動観察と保護者からのヒアリングによる綿密なアセスメントを基に、個別のニーズに応じたカリキュラムを設計します。
-                 </p>
-                 
-                 <h3 style="color: #2c5282; margin: 2rem 0 1rem 0;">専門的アセスメントプロセス</h3>
-                 <div class="grid">
-                     <div style="background: #f0f8ff; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #3182ce;">
-                         <h4 style="color: #2c5282; margin-bottom: 1rem;"><i class="fas fa-eye"></i> 行動観察</h4>
-                         <p>サッカー活動中の子どもの行動を専門家が観察し、運動能力、社会性、コミュニケーション、集中力などを評価します。</p>
-                     </div>
-                     <div style="background: #f0fff4; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #38a169;">
-                         <h4 style="color: #2c5282; margin-bottom: 1rem;"><i class="fas fa-comments"></i> 保護者ヒアリング</h4>
-                         <p>家庭や学校での様子、得意なこと、苦手なこと、興味のあることなど、詳細な情報を保護者から収集します。</p>
-                     </div>
-                     <div style="background: #fffaf0; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #d69e2e;">
-                         <h4 style="color: #2c5282; margin-bottom: 1rem;"><i class="fas fa-chart-bar"></i> 専門的評価</h4>
-                         <p>発達支援の専門家が収集した情報を分析し、子どもの発達段階や特性に最適なプログラムを設計します。</p>
-                     </div>
-                 </div>
+            <!-- プログラム4: 試合 -->
+            <div class="approach-card">
+                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <div class="approach-icon" style="margin-right: 2rem; margin-bottom: 0;">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div>
+                        <h3 class="approach-title" style="margin-bottom: 0.5rem;">試合</h3>
+                        <p style="color: #38a169; font-weight: 600; margin: 0;"><i class="fas fa-users"></i> 社会性・コミュニケーションの問題にアプローチ</p>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                    <div>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">ルール・内容</h4>
+                        <p style="line-height: 1.8;">サッカー形式の試合を行い、これまでの練習成果を実践的な場面で統合</p>
+                        
+                        <h4 style="color: #2c5282; margin-bottom: 1rem; margin-top: 1.5rem;">バリエーション</h4>
+                        <ul class="approach-features">
+                            <li>チーム人数の調整（3vs3、5vs5など）</li>
+                            <li>特別ルール設定（全員タッチルールなど）</li>
+                            <li>時間や回数の調整</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">期待できる効果</h4>
+                        <ul class="approach-features">
+                            <li>社会的スキル・チームワークの向上</li>
+                            <li>状況判断力・コミュニケーション</li>
+                            <li>ルール理解・感情調整</li>
+                            <li>実践的な統合能力の発達</li>
+                        </ul>
+                    </div>
+                </div>
 
-                 <h3 style="color: #2c5282; margin: 3rem 0 1rem 0;">詳細なアセスメントポイント</h3>
-                 <p style="margin-bottom: 2rem;">
-                     サッカー療育では、一般的な発達アセスメントをサッカー場面に応用し、より実践的な評価を行っています。
-                     以下は、サッカー場面で見られる特性や行動と、それに対するアセスメントと支援アプローチです。
-                 </p>
+                <h4 style="color: #2c5282; margin-bottom: 1rem;">発達障害別の具体的効果</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <div style="background: #f0f8ff; padding: 1.5rem; border-radius: 10px;">
+                        <h5 style="color: #e53e3e; margin-bottom: 0.5rem;"><i class="fas fa-brain"></i> ASD（自閉スペクトラム症）</h5>
+                        <p style="font-size: 0.95rem; line-height: 1.7;">社会的スキルの向上とチームワーク学習。視覚処理能力で状況判断力を改善し、固有受容覚の活用で身体の使い方を最適化します。</p>
+                    </div>
+                    <div style="background: #f0fff4; padding: 1.5rem; border-radius: 10px;">
+                        <h5 style="color: #38a169; margin-bottom: 0.5rem;"><i class="fas fa-bolt"></i> ADHD</h5>
+                        <p style="font-size: 0.95rem; line-height: 1.7;">聴覚刺激で状況に応じた判断力を向上。前庭核刺激で身体の安定性を高め、運動企画でチーム戦術を理解・実行します。</p>
+                    </div>
+                    <div style="background: #fef5f5; padding: 1.5rem; border-radius: 10px;">
+                        <h5 style="color: #f56565; margin-bottom: 0.5rem;"><i class="fas fa-book-open"></i> LD（学習障害）</h5>
+                        <p style="font-size: 0.95rem; line-height: 1.7;">チーム戦術を考える活動でワーキングメモリーを強化。視覚的な状況判断で空間認識を向上させ、段階的な戦術理解で論理的思考を育成します。</p>
+                    </div>
+                </div>
+            </div>
 
-                 <!-- 社会性・コミュニケーション -->
-                 <div style="margin-bottom: 2rem; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden;">
-                     <div style="background: #e53e3e; color: white; padding: 1rem; font-weight: 600;">
-                         <i class="fas fa-users"></i> 社会性・コミュニケーション
-                     </div>
-                     <div style="padding: 1.5rem;">
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">アイコンタクトが少ない</h5>
-                             <p><strong>支援アプローチ：</strong>視線を合わせる重要性を具体的な場面で示し、「パスを出す前に相手の顔を見る」練習を実施</p>
-                         </div>
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">集団行動から離れ、ひとりで過ごす</h5>
-                             <p><strong>支援アプローチ：</strong>少人数から徐々に集団サイズを大きくし、役割を明確に与えて参加の成功体験を作る</p>
-                         </div>
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">順番を待てない、割り込む</h5>
-                             <p><strong>支援アプローチ：</strong>視覚的なカウントダウンの導入、少人数のグループで順番待ちの練習</p>
-                         </div>
-                         <div>
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">他の子どもの反応を読み取れない</h5>
-                             <p><strong>支援アプローチ：</strong>表情カードを使った練習、「相手はどう思っているかな？」と声掛け</p>
-                         </div>
-                     </div>
-                 </div>
+            <div class="image-container">
+                <img src="https://via.placeholder.com/800x400/38a169/FFFFFF?text=試合の様子" 
+                     alt="サッカー療育での試合の様子。子どもたちがチームに分かれて楽しくプレーし、コーチがサポートしながら社会性とコミュニケーション能力を育んでいる実践的な場面" 
+                     class="section-image">
+            </div>
 
-                 <!-- 身体・運動 -->
-                 <div style="margin-bottom: 2rem; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden;">
-                     <div style="background: #38a169; color: white; padding: 1rem; font-weight: 600;">
-                         <i class="fas fa-running"></i> 身体・運動
-                     </div>
-                     <div style="padding: 1.5rem;">
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">ボールコントロールが難しい</h5>
-                             <p><strong>支援アプローチ：</strong>動作の分解トレーニング、成功しやすい環境設定（大きいボール、短い距離）</p>
-                         </div>
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">身体バランスが取りにくい</h5>
-                             <p><strong>支援アプローチ：</strong>バランスボードなどを使った基礎トレーニング、コアマッスルを鍛える遊び</p>
-                         </div>
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">空間把握が苦手（ポジショニング）</h5>
-                             <p><strong>支援アプローチ：</strong>ゴム紐や色テープで区画を視覚化、「ここが君の場所」と具体的に指示</p>
-                         </div>
-                         <div>
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">他者の動きの模倣が難しい</h5>
-                             <p><strong>支援アプローチ：</strong>動作を言語化して説明、手をとって一緒に動く物理的ガイド</p>
-                         </div>
-                     </div>
-                 </div>
+            <!-- 4つのメイン活動の包括的効果 -->
+            <div style="background: linear-gradient(135deg, #f0f8ff, #e6f3ff); padding: 3rem; border-radius: 20px; margin-top: 3rem;">
+                <h3 style="color: #2c5282; margin-bottom: 2rem; text-align: center;"><i class="fas fa-bullseye"></i> 4つのメイン活動による包括的アプローチ</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                    <div style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
+                        <div style="color: #e53e3e; font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-brain"></i></div>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">感覚処理の問題</h4>
+                        <p style="font-size: 0.95rem; line-height: 1.6;">ゲート通過シュートで触覚・固有受容覚を統合し、感覚過敏や空間認識の課題を改善</p>
+                    </div>
+                    <div style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
+                        <div style="color: #805ad5; font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-puzzle-piece"></i></div>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">運動協調の問題</h4>
+                        <p style="font-size: 0.95rem; line-height: 1.6;">けんけんシュートでバランス・身体図式を強化し、運動企画能力を向上</p>
+                    </div>
+                    <div style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
+                        <div style="color: #d69e2e; font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-eye"></i></div>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">注意・集中の問題</h4>
+                        <p style="font-size: 0.95rem; line-height: 1.6;">コーンドリブルで持続的注意力を育み、順序立った思考と集中力を強化</p>
+                    </div>
+                    <div style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
+                        <div style="color: #38a169; font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-users"></i></div>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">社会性の問題</h4>
+                        <p style="font-size: 0.95rem; line-height: 1.6;">試合で実践的なコミュニケーション・チームワーク・ルール理解を促進</p>
+                    </div>
+                    <div style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
+                        <div style="color: #f56565; font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-book-open"></i></div>
+                        <h4 style="color: #2c5282; margin-bottom: 1rem;">学習基盤の強化</h4>
+                        <p style="font-size: 0.95rem; line-height: 1.6;">眼球運動で読字能力を向上させ、微細運動で書字の基盤を強化し、ワーキングメモリーを育成</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; text-align: center; color: #2c5282; font-size: 1.1rem;">
+                    <p><strong>ASD・ADHD・DCD・LDの全ての特性に対応した統合的アプローチ</strong></p>
+                </div>
+            </div>
 
-                 <!-- 注意・集中 -->
-                 <div style="margin-bottom: 2rem; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden;">
-                     <div style="background: #d69e2e; color: white; padding: 1rem; font-weight: 600;">
-                         <i class="fas fa-eye"></i> 注意・集中
-                     </div>
-                     <div style="padding: 1.5rem;">
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">指示を聞き逃す、理解していない</h5>
-                             <p><strong>支援アプローチ：</strong>視覚的サポート（絵や写真）の追加、シンプルな言葉で一つずつ指示</p>
-                         </div>
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">活動中に離席・離脱する</h5>
-                             <p><strong>支援アプローチ：</strong>短時間・高頻度の活動に分割、適切な休憩タイムの設定</p>
-                         </div>
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">他の刺激に気を取られやすい</h5>
-                             <p><strong>支援アプローチ：</strong>刺激を少なくした環境から始める、視覚的な注意の焦点化（マーカーなど）</p>
-                         </div>
-                         <div>
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">過集中になり切り替えが難しい</h5>
-                             <p><strong>支援アプローチ：</strong>視覚的なタイマーや予告、「あと1回したら次は○○だよ」と切り替えの準備</p>
-                         </div>
-                     </div>
-                 </div>
+            <!-- その他の補助プログラム -->
+            <div style="background: #f8f9fa; padding: 3rem; border-radius: 20px; margin-top: 3rem;">
+                <h3 style="color: #2c5282; margin-bottom: 2rem; text-align: center;"><i class="fas fa-list"></i> その他の補助プログラム</h3>
+                <p style="text-align: center; margin-bottom: 2rem; color: #4a5568; font-size: 1.1rem;">4つのメイン活動を補完し、より細かな特性に対応するプログラム</p>
+                
+                <div style="overflow-x: auto;">
+                    <table class="table" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); font-size: 0.95rem;">
+                        <thead>
+                            <tr style="background: #2c5282; color: white;">
+                                <th style="width: 20%;">プログラム名</th>
+                                <th style="width: 35%;">内容</th>
+                                <th style="width: 25%;">主な効果</th>
+                                <th style="width: 20%;">対象</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>たまご落としゲーム</strong></td>
+                                <td>片手にボールを乗せ、他選手のボールを落とす</td>
+                                <td>視覚処理、前庭核、バランス</td>
+                                <td><span class="tag">ASD</span><span class="tag">DCD</span><span class="tag">LD</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>フラフープ色鬼</strong></td>
+                                <td>指定した色のフラフープに入る</td>
+                                <td>視覚処理、注意力、判断力</td>
+                                <td><span class="tag">ADHD不注意型</span><span class="tag">LD</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>ボール集めゲーム</strong></td>
+                                <td>中央のボールを自陣に運ぶ</td>
+                                <td>触覚、固有受容覚、運動企画</td>
+                                <td><span class="tag">ADHD多動型</span><span class="tag">DCD</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>逆鬼ごっこ</strong></td>
+                                <td>選手が鬼役でコーチを追いかける</td>
+                                <td>前庭核、バランス、身体図式</td>
+                                <td><span class="tag">ADHD多動型</span><span class="tag">ASD</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>追跡ドリブル</strong></td>
+                                <td>前の人の動きを見ながらドリブルで追う</td>
+                                <td>触覚、視覚処理、聴覚刺激</td>
+                                <td><span class="tag">ASD</span><span class="tag">ADHD不注意型</span><span class="tag">LD</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>様々なターン</strong></td>
+                                <td>指定のターンで次のマーカーへ進む</td>
+                                <td>前庭核、運動企画、身体図式</td>
+                                <td><span class="tag">DCD</span><span class="tag">ASD</span><span class="tag">LD</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                 <!-- 感覚処理 -->
-                 <div style="margin-bottom: 2rem; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden;">
-                     <div style="background: #805ad5; color: white; padding: 1rem; font-weight: 600;">
-                         <i class="fas fa-brain"></i> 感覚処理
-                     </div>
-                     <div style="padding: 1.5rem;">
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">身体接触を極端に嫌がる</h5>
-                             <p><strong>支援アプローチ：</strong>徐々に慣らしていく段階的アプローチ、予測可能な接触から始める（ハイタッチなど）</p>
-                         </div>
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">騒がしい環境で不安定になる</h5>
-                             <p><strong>支援アプローチ：</strong>静かな環境から徐々に慣らす、必要に応じてイヤーマフの使用</p>
-                         </div>
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">動きの多い場面で混乱する</h5>
-                             <p><strong>支援アプローチ：</strong>少人数・遅いペースの活動から始める、視覚的な手がかりを増やす（色分けなど）</p>
-                         </div>
-                         <div>
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">感覚刺激を求める行動が多い</h5>
-                             <p><strong>支援アプローチ：</strong>適切な感覚入力を提供（ジャンプ、回転など）、活動前の感覚準備運動の導入</p>
-                         </div>
-                     </div>
-                 </div>
+            <div style="background: linear-gradient(135deg, #e6fffa, #b2f5ea); padding: 3rem; border-radius: 20px; margin-top: 3rem; text-align: center;">
+                <h3 style="color: #2c5282; margin-bottom: 1.5rem;"><i class="fas fa-star"></i> カリキュラムの特徴</h3>
+                <p style="font-size: 1.2rem; color: #2d3748; line-height: 1.8;">
+                    全てのプログラムは、発達障害の特性に応じて柔軟に調整され、<strong>個別最適化</strong>されています。<br>
+                    感覚統合、運動能力、社会性、認知機能の向上を総合的に図り、
+                    子どもたち一人ひとりの<strong>強み</strong>を伸ばすことを重視しています。
+                </p>
+            </div>
+        </div>
+    </section>
 
-                 <!-- 情緒・行動 -->
-                 <div style="margin-bottom: 2rem; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden;">
-                     <div style="background: #ed8936; color: white; padding: 1rem; font-weight: 600;">
-                         <i class="fas fa-heart"></i> 情緒・行動
-                     </div>
-                     <div style="padding: 1.5rem;">
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">失敗や負けに過剰に反応する</h5>
-                             <p><strong>支援アプローチ：</strong>「失敗してもOK」の雰囲気作り、感情を言語化する支援（「悔しいね」など）</p>
-                         </div>
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">予測できない変化に不安を示す</h5>
-                             <p><strong>支援アプローチ：</strong>視覚的スケジュールの使用、変更前の予告と理由の説明</p>
-                         </div>
-                         <div style="margin-bottom: 1.5rem;">
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">ルール理解が難しく混乱する</h5>
-                             <p><strong>支援アプローチ：</strong>視覚的なルール説明（図や写真）、シンプルな言葉での説明と実演</p>
-                         </div>
-                         <div>
-                             <h5 style="color: #2c5282; margin-bottom: 0.5rem;">自信がなく挑戦を避ける</h5>
-                             <p><strong>支援アプローチ：</strong>必ず成功できるレベルから始める、小さな成功を大きく称賛する</p>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </section>
+    <!-- 僕自身の思うサッカー療育は -->
+    <section class="section" style="background: linear-gradient(135deg, #1a202c 0%, #2d3748 50%, #1a202c 100%); color: white; position: relative; overflow: hidden;">
+        <!-- 背景装飾 -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: 
+            radial-gradient(circle at 20% 50%, #ffd700 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, #ff6b6b 0%, transparent 50%),
+            radial-gradient(circle at 40% 80%, #4ecdc4 0%, transparent 50%),
+            radial-gradient(circle at 90% 90%, #45b7d1 0%, transparent 50%),
+            radial-gradient(circle at 10% 10%, #96ceb4 0%, transparent 50%);
+            animation: sparkle 8s infinite linear;"></div>
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <!-- 装飾的なタイトル -->
+                <div style="display: inline-block; padding: 2rem 4rem; background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700); 
+                           border-radius: 50px; box-shadow: 0 10px 40px rgba(255,215,0,0.4), inset 0 2px 10px rgba(255,255,255,0.3);
+                           transform: perspective(1000px) rotateX(5deg); margin-bottom: 3rem;
+                           border: 3px solid rgba(255,255,255,0.3);">
+                    <h2 style="font-size: 3.5rem; font-weight: 900; color: #1a202c; margin: 0;
+                               text-shadow: 2px 2px 4px rgba(0,0,0,0.1); letter-spacing: 2px;
+                               background: linear-gradient(45deg, #1a202c, #2d3748, #1a202c);
+                               -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                               background-clip: text;">
+                        <i class="fas fa-crown" style="color: #ffd700; margin-right: 1rem; -webkit-text-fill-color: #ffd700;"></i>
+                        僕自身の思うサッカー療育は
+                        <i class="fas fa-crown" style="color: #ffd700; margin-left: 1rem; -webkit-text-fill-color: #ffd700;"></i>
+                    </h2>
+                </div>
+            </div>
 
-     <!-- 強みに焦点を当てたアセスメント -->
-     <section id="strengths" class="section" style="background: #f7fafc;">
-         <div class="container">
-             <h2 class="section-title">強みに焦点を当てたアセスメント</h2>
-             <div class="card">
-                 <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #4a5568;">
-                     サッカー療育では、「できないこと」だけでなく「できること」「得意なこと」「可能性」を見つけることを重視しています。
-                     以下は子どもたちの強みを発見し、伸ばすためのアセスメントポイントです。
-                 </p>
-                 
-                 <div class="grid">
-                     <div style="background: #f0f8ff; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #3182ce;">
-                         <h4 style="color: #2c5282; margin-bottom: 1rem;"><i class="fas fa-running"></i> 特定の動きの得意さ</h4>
-                         <p>走る、跳ぶ、バランスを取るなど、特定の動きが得意な場合、その強みを活かしたポジションや役割を提案します。例えば、走るのが速い子どもには広いスペースを使うポジションが向いているかもしれません。</p>
-                     </div>
-                     <div style="background: #f0fff4; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #38a169;">
-                         <h4 style="color: #2c5282; margin-bottom: 1rem;"><i class="fas fa-eye"></i> 視覚的な情報処理能力</h4>
-                         <p>視覚情報の処理が得意な子どもは、フィールド全体を見渡す力や空間把握能力が高いことがあります。この強みを活かし、戦術的な視点やゲーム理解を深めるアプローチを提供します。</p>
-                     </div>
-                     <div style="background: #fffaf0; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #d69e2e;">
-                         <h4 style="color: #2c5282; margin-bottom: 1rem;"><i class="fas fa-bullseye"></i> 集中力と持続性</h4>
-                         <p>特定の活動に強い集中力を発揮する子どもは、反復練習や精密なスキルトレーニングに向いています。この特性を活かして、技術的な側面を伸ばすプログラムを設計します。</p>
-                     </div>
-                     <div style="background: #faf5ff; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #805ad5;">
-                         <h4 style="color: #2c5282; margin-bottom: 1rem;"><i class="fas fa-route"></i> ルーティンへの適応力</h4>
-                         <p>決まったパターンを理解し実行するのが得意な子どもは、組織的なプレーやポジショニングの正確さを強みにできます。明確な役割と手順を提示することで、チーム内での重要な役割を担うことができます。</p>
-                     </div>
-                     <div style="background: #fff5f5; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #e53e3e;">
-                         <h4 style="color: #2c5282; margin-bottom: 1rem;"><i class="fas fa-handshake"></i> 共感性と協力性</h4>
-                         <p>他者への気づかいや協力が得意な子どもは、チームワークを高める存在となります。この特性を伸ばし、サポート役やコミュニケーションの中心的役割を担えるよう支援します。</p>
-                     </div>
-                     <div style="background: #f7fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #4a5568;">
-                         <h4 style="color: #2c5282; margin-bottom: 1rem;"><i class="fas fa-battery-full"></i> エネルギーと熱意</h4>
-                         <p>高いエネルギーレベルと積極性は、適切に方向づけることで大きな強みになります。この特性を活かし、持久力や意欲を必要とするプレースタイルを発展させます。</p>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </section>
+            <!-- メインコンテンツカード -->
+            <div style="background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+                        backdrop-filter: blur(10px); border-radius: 30px; padding: 4rem;
+                        box-shadow: 0 20px 60px rgba(0,0,0,0.3), inset 0 1px 20px rgba(255,255,255,0.1);
+                        border: 2px solid rgba(255,255,255,0.2); margin-bottom: 4rem;">
+                
+                <!-- 画像セクション -->
+                <div class="image-container" style="margin-bottom: 4rem;">
+                    <img src="https://via.placeholder.com/1000x500/4a5568/FFFFFF?text=サッカー療育への思い" 
+                         alt="サッカー療育に込められた深い思いを表現するイメージ。様々な発達の課題を抱えた子どもたちが、サッカーを通じて笑顔で成長し、希望に満ちた未来に向かって歩んでいる温かな情景" 
+                         style="width: 100%; max-width: 1000px; height: 500px; object-fit: cover; 
+                                border-radius: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+                                border: 3px solid rgba(255,215,0,0.3);">
+                </div>
 
-     <!-- カリキュラム -->
-     <section id="curriculum" class="section">
-         <div class="container">
-             <h2 class="section-title">具体的なカリキュラム</h2>
-             <div class="card">
-                 <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #4a5568;">
-                     以下は、サッカー療育で実施される具体的なプログラムと、それぞれが主要な発達障害の問題にどのような効果をもたらすかを詳しく説明します。
-                 </p>
+                <!-- 発達障害の課題列挙 -->
+                <div style="font-size: 1.4rem; line-height: 2.2; color: #f7fafc; text-align: center; margin-bottom: 4rem;
+                           text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">
+                    <p style="margin-bottom: 2rem; font-weight: 500; opacity: 0.95;">発達障害は</p>
+                    <div style="background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(54,162,235,0.2));
+                               padding: 3rem; border-radius: 20px; margin-bottom: 2rem;
+                               border: 1px solid rgba(255,255,255,0.1); font-size: 1.3rem; line-height: 2.4;">
+                        <strong style="color: #ffd700;">コミュニケーション</strong>とか<br>
+                        <strong style="color: #ff6b6b;">自分の衝動性のコントロール</strong>とか<br>
+                        <strong style="color: #4ecdc4;">感覚過敏・感覚鈍麻</strong>とか<br>
+                        <strong style="color: #45b7d1;">注意集中の困難</strong>とか<br>
+                        <strong style="color: #96ceb4;">多動性・落ち着きのなさ</strong>とか<br>
+                        <strong style="color: #feca57;">対人関係の構築困難</strong>とか<br>
+                        <strong style="color: #ff9ff3;">感情調節の困難</strong>とか<br>
+                        <strong style="color: #54a0ff;">固執・こだわりの強さ</strong>とか<br>
+                        <strong style="color: #5f27cd;">変化への適応困難</strong>とか<br>
+                        <strong style="color: #00d2d3;">身体協調性の困難</strong>とか<br>
+                        <strong style="color: #ff9f43;">時間概念の理解困難</strong>とか<br>
+                        <strong style="color: #ee5a6f;">空間認知の困難</strong>とか<br>
+                        <strong style="color: #0abde3;">言語理解・表出の困難</strong>とか<br>
+                        <strong style="color: #3867d6;">社会性の発達の遅れ</strong>とか<br>
+                        <strong style="color: #8854d0;">自己肯定感の低さ</strong>とか<br>
+                        <strong style="color: #fd79a8;">不安・緊張の高さ</strong>とか<br>
+                        <strong style="color: #fdcb6e;">パニック・癇癪</strong>とか<br>
+                        <strong style="color: #6c5ce7;">学習の困難</strong>とか<br>
+                        <strong style="color: #a29bfe;">記憶・想起の困難</strong>とか<br>
+                        <strong style="color: #fd63a6;">計画性・組織化の困難</strong>とか<br>
+                        <strong style="color: #78e08f;">抽象的思考の困難</strong>とか<br>
+                        <strong style="color: #82ccdd;">ルール理解の困難</strong>とか<br>
+                        <strong style="color: #f8b500;">順番待ち・待つことの困難</strong>とか<br>
+                        <strong style="color: #b8860b;">集団行動への参加困難</strong>とか<br>
+                        <strong style="color: #20b2aa;">刺激への過敏・鈍感</strong>とか<br>
+                        <strong style="color: #ff7675;">身体イメージの未発達</strong>とか<br>
+                        <strong style="color: #74b9ff;">予測・見通しの困難</strong>とか<br>
+                        <strong style="color: #fd79a8;">フラストレーション耐性の低さ</strong>とか<br>
+                        <strong style="color: #fdcb6e;">視覚処理の困難</strong>とか<br>
+                        <strong style="color: #e17055;">聴覚処理の困難</strong>とか<br>
+                        <strong style="color: #00b894;">運動企画の困難</strong>とか<br>
+                        <strong style="color: #a29bfe;">模倣学習の困難</strong>とか<br>
+                        <strong style="color: #fd63a6;">環境適応の困難</strong>とか<br>
+                        <strong style="color: #55a3ff;">般化の困難</strong>とか<br>
+                        <strong style="color: #26de81;">切り替えの困難</strong>とか<br>
+                        <strong style="color: #ffa502;">想像力・創造性の偏り</strong>とか、」
+                    </div>
+                </div>
 
-                 <!-- プログラム1: ゲート通過シュート -->
-                 <div style="border: 1px solid #e2e8f0; border-radius: 15px; margin-bottom: 2rem; overflow: hidden;">
-                     <div style="background: linear-gradient(135deg, #3182ce, #2c5282); color: white; padding: 1.5rem;">
-                         <h3 style="margin-bottom: 0.5rem;"><i class="fas fa-futbol"></i> ゲート通過シュート</h3>
-                         <p style="opacity: 0.9;">コーンで構成されたゲートを通過しながらドリブルし、最後にシュート</p>
-                     </div>
-                     <div style="padding: 2rem;">
-                         <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-bottom: 2rem;">
-                             <div>
-                                 <h4 style="color: #2c5282; margin-bottom: 1rem;">プログラム内容</h4>
-                                 <p><strong>基本ルール：</strong>コーンで構成されたゲートを通過しながらドリブルし、最後にシュート</p>
-                                 <p><strong>バリエーション：</strong>ゲート数や向きの調整、シュート地点を遠くするなど</p>
-                             </div>
-                             <div>
-                                 <h4 style="color: #2c5282; margin-bottom: 1rem;">発達障害への具体的な効果</h4>
-                                 <div style="background: #f0f8ff; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                                     <h5 style="color: #e53e3e; margin-bottom: 0.5rem;"><i class="fas fa-brain"></i> ASD（自閉スペクトラム症）への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>触覚刺激により感覚統合を促進</li>
-                                         <li>固有受容覚の向上で身体図式を改善</li>
-                                         <li>視覚的な目標（ゲート）で空間認識能力を向上</li>
-                                     </ul>
-                                 </div>
-                                 <div style="background: #f0fff4; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                                     <h5 style="color: #38a169; margin-bottom: 0.5rem;"><i class="fas fa-bolt"></i> ADHD多動/衝動性型への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>連続した運動で過剰エネルギーを適切に発散</li>
-                                         <li>ゲートを通過する目標により集中力を向上</li>
-                                         <li>協応動作の練習で自己制御能力を向上</li>
-                                     </ul>
-                                 </div>
-                                 <div style="background: #fffaf0; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                                     <h5 style="color: #d69e2e; margin-bottom: 0.5rem;"><i class="fas fa-eye"></i> ADHD不注意型への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>眼球運動の向上で視覚的注意力を強化</li>
-                                         <li>聴覚刺激（指示やフィードバック）で注意の持続を改善</li>
-                                         <li>段階的な課題で注意の分散を防止</li>
-                                     </ul>
-                                 </div>
-                                 <div style="background: #faf5ff; padding: 1rem; border-radius: 8px;">
-                                     <h5 style="color: #805ad5; margin-bottom: 0.5rem;"><i class="fas fa-puzzle-piece"></i> DCD（発達性協調運動障害）への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>運動企画能力の向上で複雑な動作を習得</li>
-                                         <li>バランス感覚の向上で身体の安定性を改善</li>
-                                         <li>協応動作の反復練習で運動スキルを向上</li>
-                                     </ul>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
+                <!-- 金言部分 -->
+                <div style="text-align: center; position: relative;">
+                    <!-- 装飾的な背景 -->
+                    <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+                               width: 120%; height: 120%; background: radial-gradient(ellipse, rgba(255,215,0,0.2) 0%, transparent 70%);
+                               border-radius: 50%; z-index: 1;"></div>
+                    
+                    <!-- メインメッセージ -->
+                    <div style="position: relative; z-index: 2; background: linear-gradient(135deg, #ffd700, #ffed4e);
+                               color: #1a202c; padding: 4rem; border-radius: 30px; margin: 2rem auto;
+                               box-shadow: 0 20px 60px rgba(255,215,0,0.4), inset 0 2px 20px rgba(255,255,255,0.4);
+                               border: 3px solid rgba(255,255,255,0.5); max-width: 900px;
+                               transform: perspective(1000px) rotateX(2deg);">
+                        
+                        <!-- 装飾的なアイコン -->
+                        <div style="margin-bottom: 2rem;">
+                            <i class="fas fa-star" style="font-size: 2rem; color: #d4af37; margin: 0 1rem; animation: pulse 2s infinite;"></i>
+                            <i class="fas fa-heart" style="font-size: 2.5rem; color: #e53e3e; margin: 0 1rem; animation: heartbeat 1.5s infinite;"></i>
+                            <i class="fas fa-star" style="font-size: 2rem; color: #d4af37; margin: 0 1rem; animation: pulse 2s infinite;"></i>
+                        </div>
+                        
+                        <p style="font-size: 2.2rem; font-weight: 900; line-height: 1.8; margin: 0;
+                                  text-shadow: 2px 2px 4px rgba(0,0,0,0.1); letter-spacing: 1px;">
+                            <span style="background: linear-gradient(45deg, #e53e3e, #d4af37, #e53e3e);
+                                         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                                         background-clip: text; font-size: 2.5rem;">それに対して効果のある</span><br>
+                            <span style="background: linear-gradient(45deg, #1a202c, #2d3748, #1a202c);
+                                         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                                         background-clip: text; font-size: 2.8rem;">サッカーの活動を</span><br>
+                            <span style="background: linear-gradient(45deg, #e53e3e, #d4af37, #e53e3e);
+                                         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                                         background-clip: text; font-size: 3rem; display: inline-block; 
+                                         transform: scale(1.1); margin: 0.5rem 0;">やる気と共に結びつけて、良い部分を伸ばしていき、日常の困り感を軽減していく</span>
+                        </p>
+                        
+                        <!-- 装飾的なアンダーライン -->
+                        <div style="width: 80%; height: 4px; background: linear-gradient(90deg, transparent, #e53e3e, #d4af37, #e53e3e, transparent);
+                                   margin: 2rem auto; border-radius: 2px;"></div>
+                    </div>
 
-                 <!-- プログラム2: けんけんシュート -->
-                 <div style="border: 1px solid #e2e8f0; border-radius: 15px; margin-bottom: 2rem; overflow: hidden;">
-                     <div style="background: linear-gradient(135deg, #38a169, #2f855a); color: white; padding: 1.5rem;">
-                         <h3 style="margin-bottom: 0.5rem;"><i class="fas fa-running"></i> けんけんシュート</h3>
-                         <p style="opacity: 0.9;">片足でけんけんしながら進み、3歩目でインステップシュート</p>
-                     </div>
-                     <div style="padding: 2rem;">
-                         <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-bottom: 2rem;">
-                             <div>
-                                 <h4 style="color: #2c5282; margin-bottom: 1rem;">プログラム内容</h4>
-                                 <p><strong>基本ルール：</strong>片足でけんけんしながら進み、3歩目でインステップシュート</p>
-                                 <p><strong>バリエーション：</strong>ボールを後ろ・正面・横から転がしてシュート、バウンドボールで実施</p>
-                             </div>
-                             <div>
-                                 <h4 style="color: #2c5282; margin-bottom: 1rem;">発達障害への具体的な効果</h4>
-                                 <div style="background: #f0f8ff; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                                     <h5 style="color: #e53e3e; margin-bottom: 0.5rem;"><i class="fas fa-brain"></i> ASD（自閉スペクトラム症）への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>前庭核刺激により感覚統合を促進</li>
-                                         <li>身体図式の向上で自己の身体認識を改善</li>
-                                         <li>予測可能な動作パターンで不安を軽減</li>
-                                     </ul>
-                                 </div>
-                                 <div style="background: #f0fff4; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                                     <h5 style="color: #38a169; margin-bottom: 0.5rem;"><i class="fas fa-bolt"></i> ADHD多動/衝動性型への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>バランス練習で体幹の安定性を向上</li>
-                                         <li>運動企画により順序立てた行動を学習</li>
-                                         <li>協応動作で衝動性をコントロール</li>
-                                     </ul>
-                                 </div>
-                                 <div style="background: #fffaf0; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                                     <h5 style="color: #d69e2e; margin-bottom: 0.5rem;"><i class="fas fa-eye"></i> ADHD不注意型への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>けんけんのリズムで注意の持続を改善</li>
-                                         <li>3歩という明確な目標で注意の焦点化</li>
-                                         <li>身体と認知の協調で集中力を向上</li>
-                                     </ul>
-                                 </div>
-                                 <div style="background: #faf5ff; padding: 1rem; border-radius: 8px;">
-                                     <h5 style="color: #805ad5; margin-bottom: 0.5rem;"><i class="fas fa-puzzle-piece"></i> DCD（発達性協調運動障害）への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>片足バランスで体幹機能を強化</li>
-                                         <li>運動企画能力で複雑な動作を分解学習</li>
-                                         <li>協応動作の反復で運動パターンを習得</li>
-                                     </ul>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
+                    <!-- サブメッセージ -->
+                    <div style="margin-top: 3rem; font-size: 1.5rem; color: #e2e8f0; text-align: center;
+                               font-weight: 500; line-height: 2; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">
+                        <p style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+                                  padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);
+                                  backdrop-filter: blur(5px);">
+                            <i class="fas fa-sparkles" style="color: #ffd700; margin-right: 0.5rem;"></i>
+                            これがサッカー療育の本質であり、すべての子どもたちの可能性を信じる私たちの使命です
+                            <i class="fas fa-sparkles" style="color: #ffd700; margin-left: 0.5rem;"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-                 <!-- プログラム3: コーンドリブル -->
-                 <div style="border: 1px solid #e2e8f0; border-radius: 15px; margin-bottom: 2rem; overflow: hidden;">
-                     <div style="background: linear-gradient(135deg, #d69e2e, #b7791f); color: white; padding: 1.5rem;">
-                         <h3 style="margin-bottom: 0.5rem;"><i class="fas fa-route"></i> コーンドリブル</h3>
-                         <p style="opacity: 0.9;">並べたコーンを様々な方法でドリブル（左右交互、足の部位別など）</p>
-                     </div>
-                     <div style="padding: 2rem;">
-                         <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-bottom: 2rem;">
-                             <div>
-                                 <h4 style="color: #2c5282; margin-bottom: 1rem;">プログラム内容</h4>
-                                 <p><strong>基本ルール：</strong>並べたコーンを様々な方法でドリブル（左右交互、足の部位別など）</p>
-                                 <p><strong>バリエーション：</strong>コーン横通過、ジグザグ、横向き、足の部位を変える</p>
-                             </div>
-                             <div>
-                                 <h4 style="color: #2c5282; margin-bottom: 1rem;">発達障害への具体的な効果</h4>
-                                 <div style="background: #f0f8ff; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                                     <h5 style="color: #e53e3e; margin-bottom: 0.5rem;"><i class="fas fa-brain"></i> ASD（自閉スペクトラム症）への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>触覚刺激で感覚過敏への段階的適応</li>
-                                         <li>固有受容覚の向上で身体認識を改善</li>
-                                         <li>視覚的手がかり（コーン）で空間認識を向上</li>
-                                     </ul>
-                                 </div>
-                                 <div style="background: #f0fff4; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                                     <h5 style="color: #38a169; margin-bottom: 0.5rem;"><i class="fas fa-bolt"></i> ADHD多動/衝動性型への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>聴覚刺激（指示）で注意の転換を練習</li>
-                                         <li>眼球運動で視覚的注意力を向上</li>
-                                         <li>身体図式の改善で自己制御を強化</li>
-                                     </ul>
-                                 </div>
-                                 <div style="background: #fffaf0; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                                     <h5 style="color: #d69e2e; margin-bottom: 0.5rem;"><i class="fas fa-eye"></i> ADHD不注意型への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>運動企画で順序立てた思考を促進</li>
-                                         <li>協応動作で注意の分散を防止</li>
-                                         <li>バランス練習で集中力を向上</li>
-                                     </ul>
-                                 </div>
-                                 <div style="background: #faf5ff; padding: 1rem; border-radius: 8px;">
-                                     <h5 style="color: #805ad5; margin-bottom: 0.5rem;"><i class="fas fa-puzzle-piece"></i> DCD（発達性協調運動障害）への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>運動企画の向上で複雑な足さばきを習得</li>
-                                         <li>協応動作の反復で両足の協調性を改善</li>
-                                         <li>身体図式の発達で運動パターンを安定化</li>
-                                     </ul>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
+            <!-- 追加装飾画像 -->
+            <div class="image-container" style="margin-top: 4rem;">
+                <img src="https://via.placeholder.com/1000x400/2d3748/FFFFFF?text=希望と可能性の未来" 
+                     alt="サッカー療育を通じて希望に満ちた未来を描く象徴的なイメージ。虹色の光に包まれた子どもたちが、サッカーボールと共に明るい未来に向かって歩んでいる感動的な風景" 
+                     style="width: 100%; max-width: 1000px; height: 400px; object-fit: cover; 
+                            border-radius: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+                            border: 3px solid rgba(255,215,0,0.2); opacity: 0.9;">
+            </div>
+        </div>
+    </section>
 
-                 <!-- プログラム4: 試合 -->
-                 <div style="border: 1px solid #e2e8f0; border-radius: 15px; margin-bottom: 2rem; overflow: hidden;">
-                     <div style="background: linear-gradient(135deg, #805ad5, #6b46c1); color: white; padding: 1.5rem;">
-                         <h3 style="margin-bottom: 0.5rem;"><i class="fas fa-trophy"></i> 試合</h3>
-                         <p style="opacity: 0.9;">サッカー形式の試合を行う</p>
-                     </div>
-                     <div style="padding: 2rem;">
-                         <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-bottom: 2rem;">
-                             <div>
-                                 <h4 style="color: #2c5282; margin-bottom: 1rem;">プログラム内容</h4>
-                                 <p><strong>基本ルール：</strong>サッカー形式の試合を行う</p>
-                                 <p><strong>目的：</strong>これまでの練習の成果を統合し、実践的な場面での応用力を育む</p>
-                             </div>
-                             <div>
-                                 <h4 style="color: #2c5282; margin-bottom: 1rem;">発達障害への具体的な効果</h4>
-                                 <div style="background: #f0f8ff; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                                     <h5 style="color: #e53e3e; margin-bottom: 0.5rem;"><i class="fas fa-brain"></i> ASD（自閉スペクトラム症）への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>社会的スキルの向上：チームワークとコミュニケーション</li>
-                                         <li>視覚処理能力で状況判断力を改善</li>
-                                         <li>固有受容覚の活用で身体の使い方を最適化</li>
-                                     </ul>
-                                 </div>
-                                 <div style="background: #f0fff4; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                                     <h5 style="color: #38a169; margin-bottom: 0.5rem;"><i class="fas fa-bolt"></i> ADHD多動/衝動性型への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>聴覚刺激で状況に応じた判断力を向上</li>
-                                         <li>前庭核刺激で身体の安定性を向上</li>
-                                         <li>運動企画でチーム戦術を理解・実行</li>
-                                     </ul>
-                                 </div>
-                                 <div style="background: #fffaf0; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                                     <h5 style="color: #d69e2e; margin-bottom: 0.5rem;"><i class="fas fa-eye"></i> ADHD不注意型への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>バランス感覚で体幹の安定を通じた集中力向上</li>
-                                         <li>眼球運動で広い視野での注意配分を学習</li>
-                                         <li>身体図式の活用で自信を持った動作を実現</li>
-                                     </ul>
-                                 </div>
-                                 <div style="background: #faf5ff; padding: 1rem; border-radius: 8px;">
-                                     <h5 style="color: #805ad5; margin-bottom: 0.5rem;"><i class="fas fa-puzzle-piece"></i> DCD（発達性協調運動障害）への効果</h5>
-                                     <ul style="margin-left: 1.5rem; font-size: 0.9rem;">
-                                         <li>運動企画の統合で複雑な状況への対応力を向上</li>
-                                         <li>協応動作の実践で全身の協調性を改善</li>
-                                         <li>成功体験の積み重ねで運動への自信を構築</li>
-                                     </ul>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
+    <!-- Footer -->
+    <footer style="background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); color: white; text-align: center; padding: 4rem 0; margin-top: 0;
+                   box-shadow: inset 0 10px 30px rgba(0,0,0,0.3);">
+        <div class="container">
+            <div style="margin-bottom: 2rem;">
+                <i class="fas fa-heart" style="color: #e53e3e; font-size: 2rem; margin: 0 1rem; animation: heartbeat 2s infinite;"></i>
+                <i class="fas fa-star" style="color: #ffd700; font-size: 1.5rem; margin: 0 0.5rem; animation: twinkle 3s infinite;"></i>
+                <i class="fas fa-futbol" style="color: #4ecdc4; font-size: 2rem; margin: 0 1rem; animation: bounce 2s infinite;"></i>
+                <i class="fas fa-star" style="color: #ffd700; font-size: 1.5rem; margin: 0 0.5rem; animation: twinkle 3s infinite;"></i>
+                <i class="fas fa-heart" style="color: #e53e3e; font-size: 2rem; margin: 0 1rem; animation: heartbeat 2s infinite;"></i>
+            </div>
+            <p style="font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600;">&copy; 2024 サッカー療育 - 発達障害の子どもたちのサポート</p>
+            <p style="opacity: 0.9; font-size: 1.1rem; color: #ffd700; font-weight: 500;">すべての子どもたちの可能性を信じて ✨</p>
+        </div>
+    </footer>
 
-                 <!-- その他の主要プログラムまとめ -->
-                 <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px; border-left: 5px solid #6b46c1;">
-                     <h3 style="color: #2c5282; margin-bottom: 1.5rem;"><i class="fas fa-list"></i> その他の主要プログラム</h3>
-                     <div style="overflow-x: auto;">
-                         <table class="table" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                             <thead>
-                                 <tr style="background: #2c5282; color: white;">
-                                     <th>プログラム名</th>
-                                     <th>内容</th>
-                                     <th>主な効果</th>
-                                     <th>特に効果的な障害</th>
-                                 </tr>
-                             </thead>
-                             <tbody>
-                                 <tr>
-                                     <td><strong>たまご落としゲーム</strong></td>
-                                     <td>片手にボールを乗せ、他選手のボールを落とす</td>
-                                     <td>視覚処理、前庭核、バランス</td>
-                                     <td><span class="tag">ASD</span><span class="tag">DCD</span></td>
-                                 </tr>
-                                 <tr>
-                                     <td><strong>フラフープ色鬼</strong></td>
-                                     <td>コーチが指定した色のフラフープに入る</td>
-                                     <td>視覚処理、注意力、判断力</td>
-                                     <td><span class="tag">ADHD不注意型</span></td>
-                                 </tr>
-                                 <tr>
-                                     <td><strong>ボール集めゲーム</strong></td>
-                                     <td>中央のボールを自陣に運ぶ（制限時間で競う）</td>
-                                     <td>触覚、固有受容覚、運動企画</td>
-                                     <td><span class="tag">ADHD多動型</span><span class="tag">DCD</span></td>
-                                 </tr>
-                                 <tr>
-                                     <td><strong>逆鬼ごっこ</strong></td>
-                                     <td>選手が鬼役でコーチを追いかける</td>
-                                     <td>前庭核、バランス、身体図式</td>
-                                     <td><span class="tag">ADHD多動型</span><span class="tag">ASD</span></td>
-                                 </tr>
-                                 <tr>
-                                     <td><strong>追跡ドリブル</strong></td>
-                                     <td>前の人の動きを見ながら後ろの人がドリブルで追う</td>
-                                     <td>触覚、視覚処理、聴覚刺激</td>
-                                     <td><span class="tag">ASD</span><span class="tag">ADHD不注意型</span></td>
-                                 </tr>
-                                 <tr>
-                                     <td><strong>様々なターン</strong></td>
-                                     <td>指定のターンを使って次のマーカーへ進む</td>
-                                     <td>前庭核、運動企画、身体図式</td>
-                                     <td><span class="tag">DCD</span><span class="tag">ASD</span></td>
-                                 </tr>
-                             </tbody>
-                         </table>
-                     </div>
-                 </div>
 
-                 <div style="background: linear-gradient(135deg, #e6fffa, #b2f5ea); padding: 2rem; border-radius: 15px; margin-top: 2rem; text-align: center;">
-                     <h3 style="color: #2c5282; margin-bottom: 1rem;"><i class="fas fa-star"></i> カリキュラムの特徴</h3>
-                     <p style="font-size: 1.1rem; color: #2d3748; line-height: 1.8;">
-                         全てのプログラムは、発達障害の特性に応じて柔軟に調整され、
-                         <strong>個別最適化</strong>されています。<br>
-                         感覚統合、運動能力、社会性、認知機能の向上を総合的に図り、
-                         子どもたち一人ひとりの<strong>強み</strong>を伸ばすことを重視しています。
-                     </p>
-                 </div>
-             </div>
-         </div>
-     </section>
-
-     <!-- Footer -->
-     <footer style="background: #2c5282; color: white; text-align: center; padding: 2rem 0; margin-top: 3rem;">
-         <div class="container">
-             <p>&copy; 2024 サッカー療育 - 発達障害の子どもたちのサポート</p>
-             <p style="margin-top: 0.5rem; opacity: 0.8;">すべての子どもたちの可能性を信じて</p>
-         </div>
-     </footer>
 </body>
 </html> 
